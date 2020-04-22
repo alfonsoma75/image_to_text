@@ -1,26 +1,25 @@
 # Image to text.
-###Extráe el texto de una imagen usando _tesseract_.
+## Extráe el texto de una imagen usando _tesseract_.
 
-#####Descripción.
+### Descripción.
 Proyecto básico hecho en _Python(Django)_ y _Vanilla Javascript_ que muestra el resultado de la utilización de la  librería _tesseract_
 
-#####Utilización.
+### Utilización.
 El uso es simple, se sube una imagen, hecho esto se pulsa el botón *convertir* que realizará la extracción del texto (esto puede tardar un tiempo, en función de la cantidad de texto a extraer).
 
 Finalizada la extracción se muestra el texto en pantalla y se tiene la opción de exportar el texto usando el botón *exportar*
 
-#####Dependencias del sistema.
+### Dependencias del sistema.
 Para hacer la instalación se requiere tener instalado *tesseract*, si no lo tiene instalado puede descargarlo [aquí](https://github.com/tesseract-ocr/tesseract/wiki).
 
-Adicionalmente se pueden agregar _trainerdata_ en varios idiomas desde [aquí](
-)
+Adicionalmente se pueden agregar _traineddata_ en varios idiomas desde [aquí](https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc#languages)
 
 Para este proyecto será necesario tener instalados los idiomas eng y spa.
 Puede comprobar los idiomas instalados en:
 - Windows: C:\Program Files\Tesseract-OCR\tessdata\
 - Linux, Mac: /usr/share/tesseract-ocr/4.00/tessdata/ *(la carpeta 4.00 es la versión, si tiene una versión diferente tiene que entrar en la carpeta correspondiente a su versión)*
 
-#####Instalación.
+### Instalación.
 Para realizar la instalación hay que seguir los siguientes pasos.
 
 1. Descargar el código fuente
@@ -35,7 +34,7 @@ Para realizar la instalación hay que seguir los siguientes pasos.
 7. Recolectamos los archivos estáticos. `python manage.py collectstatics`
 8. Para usarlo con el servidor de pruebas de *django* usad. `python manage.py runserver` y acceder con el navegador a [localhost:8000](http://localhost:8000)
 
-#####Extras.
+### Extras.
 Las imágenes se subirán a la carpeta *tmp/* dentro de la carpeta media. Si no se hacen cambios dicha carpeta se ubicará en la carpeta padre de donde tengamos la aplicación. *../static/media/tmp/*
 
 Una vez subida la imagen se crea un registro en la base de datos con la imagen y un UUID.
@@ -58,10 +57,12 @@ Esto hará que borre todos los datos excepto los de las últimas 10 horas. Si se
 
 El parámetro solo admite números enteros positivos, cualquier otra cosa (negativos, decimales, texto) hará su función por defecto que es *hours=1*
 
-#####Ejemplo.
+### Ejemplo.
+
 ![Ejemplo de funcionamiento](./Image_to_tex.gif)
 
-#####Por hacer.
+### Por hacer.
+
 - Utilizar las diversas opciones de reconocimiento de texto.
 
 - Utilizar y mostrar el reconocimiento de cuadros que componen el texto de la imágen.
@@ -71,7 +72,8 @@ El parámetro solo admite números enteros positivos, cualquier otra cosa (negat
 - Crear API para utilizar desde el exterior o integrar otros Front-ends.
 
 
-#####Créditos.
+### Créditos.
+
 Autor: != Alfonso merino
 
 Email: alfonsoma75@gmail.com
