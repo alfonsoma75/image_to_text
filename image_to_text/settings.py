@@ -128,4 +128,4 @@ STATICFILES_DIR = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/media')
 
-MAIN_URL = 'http://localhost:8000/'
+MAIN_URL = 'http://192.168.1.80:8000/'
