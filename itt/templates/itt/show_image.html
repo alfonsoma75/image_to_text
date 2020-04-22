@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-5 align-content-center mt-5">
+            <div class="position-fixed">
+                {% if image %}
+                    <img src="{{ image.url }}" alt="image" width="300">
+                {% endif %}
+            </div>
+        </div> <!-- end col-5 -->
+        <div id="text" class="col-7 mt-5"></div>
+    </div> <!-- end row -->
+
+    <div id="converting" class="d-flex justify-content-center mt-5 hideMe"  >
+      <div class="spinner-border" role="status"></div>
+    </div>
+{% endblock content %}
+
+{% block js_body %}
+    <script>
+        btnImage = document.getElementById('btnImage');
+        btnConvert = document.getElementById('btnConvert');
+        btnExport = document.getElementById('btnExport');
+        divConverting = document.getElementById('converting');
+
+        result = document.getElementById('text');
+
+        btnConvert.addEventListener('click', letsDoIt);
+        btnExport.addEventListener('click', letsExport);
+
+        function letsDoIt(e) {
+            /**
+             * Hace una conexión al endpoint que extrae el texto de la imagen
+             * si no hay error muestra el texto en la página.
+             * la variable {{ url }} es recibida desde el servidor.
+             */
+            doConvert();
+            const url = '{{ url }}';
+            fetch(url)
+                .then( function(resp){ return resp.json() } )
+                .then( function(res) {
+                    result.innerText = res.text;
+                    resultConvert();
+                } )
+                .catch( function (error) { console.log(error) } )
+        }
+        
+        function doConvert() {
+            /**
+             * Hace cambios en los botones a la espera de la conversion
+             * - Muestra el spinner
+             * - Deshabilita los botones convertir y exportar
+             */
+            btnConvert.classList.add('disabled');
+            btnExport.classList.add('disabled');
+            divConverting.classList.remove('hideMe');
+        }
+
+        function resultConvert() {
+            /**
+             * Hace cambios en los botones, una vez se tenga el texto convertido.
+             * - Quita el spinner
+             * - Activalos botones convertir y exportar
+             */
+            btnConvert.classList.remove('disabled');
+            btnExport.classList.remove('disabled');
+            divConverting.classList.add('hideMe');
+
+        }
+
+        function letsExport() {
+            /**
+             * Exporta el texto a un archivo llamado 'archivo.txt'
+             */
+            const text = result.innerText
+            this.download = "archivo.txt";
+            this.href = "data:application/octet-stream," + encodeURIComponent(text);
+        }
+
+    </script>
+{% endblock js_body %}

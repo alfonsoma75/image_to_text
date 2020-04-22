@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Image to text{% endblock title %}</title>
+
+    <link rel="stylesheet" href="{%  static 'base/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{%  static 'base/css/styles.css' %}" />
+    <script src="{% static 'base/js/jquery-3.5.0.js' %}"></script>
+    <script src="{% static 'base/js/bootstrap.js' %}"></script>
+</head>
+
+<body>
+    {% block navbar %}
+        {% include 'base/navbar.html' %}
+    {% endblock navbar %}
+    <div class="container mt-5">
+        {% block content %}{% endblock content %}
+        {% block js_body %}{% endblock js_body %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.auto-center {
+    margin: auto;
+}
+.menu-item-large {
+    width: 300px;
+}
+.cuadro {
+    height: 150px;
+    padding: 30px;
+    margin-top: 150px;
+    border: 1px solid cornflowerblue;
+    border-radius: 10px;
+    box-shadow: lightgrey 10px 10px;
+}
+.hideMe {
+    visibility: hidden;
+}

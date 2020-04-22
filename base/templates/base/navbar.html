@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+  <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <ul class="navbar-nav auto-center" >
+      <li class="nav-item menu-item-large">
+        <a id="btnImage" class="nav-link text-center" href="{% url 'itt:home' %}" >Nueva imagen</a>
+      </li>
+      <li class="nav-item menu-item-large">
+        <a id="btnConvert" class="nav-link text-center
+            {% if request.path == '/' %}disabled{% endif %}"
+           href="#" >Convertir</a>
+      </li>
+      <li class="nav-item menu-item-large " >
+        <a id="btnExport" class="nav-link text-center disabled" href="#">Exportar</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
