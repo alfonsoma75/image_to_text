@@ -59,7 +59,7 @@ El parámetro solo admite números enteros positivos, cualquier otra cosa (negat
 
 ### Ejemplo.
 
-![Ejemplo de funcionamiento](Image_to_text.gif)
+![Ejemplo de funcionamiento](./image_to_text.gif)
 
 ### Por hacer.
 
